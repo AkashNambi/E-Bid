@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/navbar.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>E-BID</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light  navigation-bar fixed-top">
+        <a class="navbar-brand" href="">E-BID</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    <div class="w-100">
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mr-auto ">
+            <li class="nav-item ">
+              <a class="nav-link" href="/my_products/<%= username %>">Products </a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="/message/<%= username %>/message">Refresh </a>
+              </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item " >
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true" ><%= username %></a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="/"><span class="icon"><i class="fa fa-fw fa-user"></i></span>Log-Out</a>
+            </li>
+        </ul>
+        </div>
+    </div>
+    </nav>
+    <div class="row">
+        <div class="col-12 col-md-6 mt-5 border-right">
+            <h3 class="mt-4 text-center">Send Message</h3>
+            <div style="text-align: center; font-size: 13px; color: red;"><%= error_message %></div>
+            <div class="row">
+                <div class="col-10 offset-1">
+                    <form class="rounded" method="POST" action="/send_message/<%= username %>">
+                        <div class="input-group mb-3 mt-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text sellerPageText" id="inputGroup-sizing-default  " >To User</span>
+                            </div>
+                            <input type="text" name="tusername" value="<%= tusername %>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                          </div>
+                          <div class="input-group mb-3">
+                              <div class="input-group-prepend">
+                                 <span class="input-group-text sellerPageText" id="inputGroup-sizing-default  " >Subject</span>
+                              </div>
+                                <input type="text" name="subj" value="<%= subj %>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1" class="sellerPageText">Message</label>
+                            <textarea class="form-control" name="msg" id="exampleFormControlTextarea1" rows="7" required><%= msg %></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary mb-2 sellerPageText" style="background-color: #800080 ;">SEND</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md mt-5  border-top">
+            <h3 class="mt-4 text-center">Inbox</h3>
+            <% if(i == 0 ) { %>
+            <div class="row">
+                <div class="col-10 offset-1">
+                  <div class="card"></div>
+                  <h5 class="card-header"><span>&emsp;Looks like your inbox is empty :(</span></h5>
+                </div>
+                      
+                </div>
+
+            </div>
+            <% } else{ %>
+              <% for(values of rows) { %>
+                <div class="row">
+                  <div class="col-10 offset-1">
+                      <div class="card">
+                          <h5 class="card-header">From:<span>&emsp;<%= values.fusername %></span></h5>
+                          <div class="card-body">
+                            <h6 class="card-title">Subject:  <span><%= values.subj%></span></h6>
+                            <p class="card-text"><%= values.msg %></p>
+                            <h6 class="card-title" style="text-align: right; font-size: 30px;"><span>&#<%= values.reaction%></span></h6>
+                          </div>
+                        </div>
+                  </div>
+  
+              </div>
+            <% } %>
+            <% } %>
+
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

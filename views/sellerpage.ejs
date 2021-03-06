@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/sellerpage.css">
+    <link rel="stylesheet" href="/navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap" rel="stylesheet">
+   
+    <script src="https://kit.fontawesome.com/19894d0c2e.js" crossorigin="anonymous"></script>
+    <title>Seller</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light  navigation-bar fixed-top">
+        <a class="navbar-brand" href="#">E-BID</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    <div class="w-100">
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mr-auto ">
+            <li class="nav-item ">
+              <a class="nav-link" href="/my_products/<%= username %>"> My Products </a>
+            </li>
+            <li class="nav-item active " >
+              <a class="nav-link  " href="/message/<%= username %>/message">Message</a>
+            </li>
+            <li class="nav-item active " >
+              <a class="nav-link  " href="/sold_item/<%= username %>">Sold Items</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item " >
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true" ><%= username %></a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="/"><span class="icon"><i class="fa fa-fw fa-user"></i></span>Log-Out</a>
+            </li>
+        </ul>
+        </div>
+    </div>
+      </nav>
+    <p class="text-center font-weight-bold sellerPageFont sellerPageText " style="margin-top: 55px;">Product Details</p>
+    <div style="text-align: center; font-size: 13px; color: red;"><%= error_message %></div>
+    <div class="container">
+     <div class=" row  ">
+     <form class="col-10 offset-1 col-sm-8 offset-sm-2 rounded  text-white " method="POST" action="/add-product/<%= username %>"  style="background-color: #85C1E9;" enctype="multipart/form-data">
+        <div class="input-group mb-3 mt-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text sellerPageText" id="inputGroup-sizing-default  " >Name of Product</span>
+            </div>
+            <input type="text" name = "item_name" value="<%= item_name %>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+          </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text sellerPageText" id="inputGroupFileAddon01">Image of Product</span>
+            </div>
+            <div class="custom-file ">
+              <label class="custom-file-label sellerPageText" for="inputGroupFile02">
+                <input type="file"  name="image" value = "<%= image %>"  aria-describedby="inputGroupFileAddon01" required>
+              </label>
+            </div>
+        </div>
+        
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text sellerPageText" >Base Price</span>
+              <span class="input-group-text sellerPageText" >$</span>
+            </div>
+            <input type="number" name="item_price" value="<%= item_price %>" class="form-control" min = "1" aria-label="Amount (to the nearest dollar)" required>
+            <div class="input-group-append">
+              <span class="input-group-text">.00</span>
+             </div>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text sellerPageText" id="inputGroup-sizing-default" >Start Date</span>
+            </div>
+            <input type="date" min="<%= min_date %>" max="<%= max_date%>" name="sell_date" value="<%= sell_date %>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+          </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text sellerPageText" id="inputGroup-sizing-default">Start Time</span>
+            </div>
+            <input type="time" name="start_time" value="<%= start_time %>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text sellerPageText" id="inputGroup-sizing-default" >End Date</span>
+            </div>
+            <input type="date" min="<%= min_date %>" max="<%= max_date%>" name="sell_date_end" value="<%= sell_date %>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text sellerPageText" id="inputGroup-sizing-default">End Time</span>
+            </div>
+            <input type="time" name = "end_time" value="<%= end_time %>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+          </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1" class="sellerPageText">Information About Product</label>
+            <textarea class="form-control" name="description" rows="3" required><%= description %></textarea>
+          </div>
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+          <label class="form-check-label sellerPageText" for="exampleCheck1" >I agree that all information given are true</label>
+        </div>
+        <button type="submit" class="btn btn-primary mb-2 sellerPageText" style="background-color: #800080 ;">Submit</button>
+      </form>
+    </div>
+ </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  </body>
+</html>

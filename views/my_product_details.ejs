@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="/styles-auction.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&family=Lobster&display=swap" rel="stylesheet">
+    
+    <title>Details</title>
+  </head>
+  <body>
+    <div class="topnav fixed-top">
+        <a class="active" href="" style="text-decoration: none;">E-BID</a>
+        <a href="/my_products/<%= username %>" style="text-decoration: none;">Products</a>
+        <div class="topnav-right">
+            <a href="#" style="text-decoration: none;"><%= username %></a>
+            <a href="/" style="text-decoration: none;"><span class="icon"><i class="fa fa-fw fa-user"></i></span>Log Out</a>
+        </div>
+    </div>
+
+    <% for(item of products){ %>
+    <div class="container py-5">
+        
+        <div class="row">
+            <div class="col-10 mx-auto text-center text-title text-blue my-5">
+                <h1><%= item.iname %></h1>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-10 offset-1 mx-auto col-md-4 offset-md-2 my-3">
+                <img src="<%= item.image_url %>" class="img-fluid border" alt="product" />
+            </div>
+          
+            <div class="col-10 offset-1 mx-auto col-md-6 my-3 text-capitalize">
+                <h4 class="text-title text-uppercase text-muted mt-3 mb-2">
+                </h4>
+                <h4 class="text-blue">
+                    <strong>
+                      Base  price : <span>$</span><%= item.initial_price %><br>
+                      Highest Bid Value : <span></span><%= highest_bid_val %>
+                    </strong>
+                </h4>
+                <p class="font-weight-bold mt-3 mb-0">
+                    Info about the product :
+                
+                <p class="text-muted lead"><%= item.descript %>
+                </p> 
+                 
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
+        
+      <% } %>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+</body>
+</html>

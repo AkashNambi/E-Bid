@@ -1,0 +1,14 @@
+.nav-link,.navbar-brand
+{
+    color: white !important;
+    font-size: 1.25rem!important;
+}
+.navigation-bar
+{
+    background-color: #000066!important;
+}
+.nav-item :hover
+{
+    background-color: #DCDCDC!important;
+    color: black!important;
+}

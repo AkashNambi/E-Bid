@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up and Login Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="hero">
+        <div class="form-box">
+            <h5>Sign Up</h5>
+
+            <form action="/buyer_fill" class="input-group2 scrollable" method="POST">
+                <div style="text-align: center; font-size: 13px; color: red;"><%= error_message %></div>
+                <input type="text" name = "username" value="<%= username%>" class="input-field" placeholder="User Name" required>
+                <input type="password" name = "passwd" value="<%= passwd%>" class="input-field" placeholder="Enter Password" required>
+                <input type="password" name = "re_passwd" value="<%= passwd%>" class="input-field" placeholder="Re-enter Password" required>
+                <input type='text' name = "address" value="<%= address%>" class="input-field" placeholder="Address" required>
+                <input type="tel" pattern="[0-9]{10}" name = "phone_no" value="<%= phone_no%>" class="input-field" placeholder="Enter Mobile Number(10 Digits)" required>
+                <input type="text" name = "profession" value="<%= profession%>" class="input-field" placeholder="Profession" required>
+                <input type="number" name = "income" value="<%= income%>" class="input-field" placeholder="Income" required>
+                <input type="text" name = "education" value="<%= education%>" class="input-field" placeholder="Education Details" required>
+                <input type="checkbox" class="check-box" required><span> I Agree To The Terms & Conditions</span>
+                <button type="submit" class="submit-btn">Sign Up</button>
+
+
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

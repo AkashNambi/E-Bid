@@ -1,0 +1,34 @@
+:root{
+    --mainBlue:#2a2a72;
+    --lightBlue:#009ffd;
+    --mainWhite:#f3f3f3;
+    --mainDark:#232528;
+    --mainYellow:#ffa400;
+    
+  }
+  .text-title
+  {
+    font-family: 'Balsamiq Sans', cursive;
+    text-transform: uppercase;
+  }
+  .text-blue
+  {
+    color:var(--mainBlue);
+  }
+  .text-bright
+  {
+    color: var(--lightBlue);
+  }
+a
+{
+    text-decoration: none;
+}
+.sellerPageFont
+{
+    font-size: 3rem;
+}
+.sellerPageText
+{
+    color: #495057;
+    font-family: 'Balsamiq Sans', cursive;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/styles-auction.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/19894d0c2e.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+    <div class="topnav fixed-top">
+        <a class="active" href="#">E-BID</a>
+        <a href="/index-auction/<%= username %>">Products</a>
+        <div class="topnav-right">
+            <a href="#" style="text-decoration: none;"><%= username %></a>
+            <a href="/"><span class="icon"><i class="fa fa-fw fa-user"></i></span>Log Out</a>
+        </div>
+    </div>
+    <p id="auction">MY PRODUCTS</p>
+    <div class="top1">
+        <% if (products.length == 0 ) {%>
+
+            <p style="font-size: 6vw; text-align: center; font-weight: 700;">You have not bought anything :(</p>
+
+        <% } else { %>
+        <% for(items of products) { %>
+        <div class="card image1">
+            <div class="top-section">
+                <img id="image-container" src="<%= items.image_url %>" alt="<%= items.iname %>" style="width:100% ">
+                <!-- <div class="nav">
+                    <img onclick="change_img(this)" src="./images/1.png" alt="">
+                    <img onclick="change_img(this)" src="./images/2.png" alt="">
+                    <img onclick="change_img(this)" src="./images/3.png" alt="">
+                </div> -->
+                <div>
+                    SOLD BY:<br>
+                    <%= items.username %>
+                </div>
+                <div class="price">$<%= items.initial_price %></div>
+            </div>
+
+            <div class="product-info">
+                <div class="name"><%= items.iname %></div>
+                <a class="btn" href="/my_product_details/<%= items.item_id %>/<%= username %>">Details</a>
+            </div>
+
+        </div>
+
+        <% } %>
+        <% } %>
+    </div>
+
+
+
+
+
+
+
+
+</body>
+
+</html>
